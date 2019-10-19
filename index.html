@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>
+        Imbue Demo
+    </title>
+    <script src="imbue.js" type="text/javascript"></script>
+</head>
+<style>
+    .heading {
+        font-family: sans-serif;
+    }
+
+    .nightMode {
+        background: black;
+        color: white;
+    }
+
+    .box {
+        border-radius: 8px;
+        padding: 10px;
+        background: #242424;
+        color: white;
+        margin: 5px;
+    }
+</style>
+
+<body>
+    <h1>Imbue</h1>
+    <div class="box">
+        <p>Imbue is meant to provide a vanilla-javascript friendly development experience. </p>
+        <p>To accomplish this, Imbue provides prototype extensions for the document and HTML elements, allowing you to access standard JavaScript functionality in an easier way.</p>
+        <p>Imbue should be nearly as fast as vanilla JS, but hopefully easier to work with.</p>
+    </div>
+    <h2>Examples:</h2>
+    <div id="examples">
+        <div class="divOne">
+            <h3>HTMLDocument</h3>
+            <p>
+                <pre>document.getElement("p") // returns first p elements</pre> 
+                <pre>document.getElements("p") // returns all p elements</pre> 
+                <pre>document.getElement("p", context) // optionally provide context (default is document)</pre> 
+                <hr/>
+                <pre>document.whenReady(function() { // code here }); // ran when document is ready</pre>
+                <pre>document.whenReady(() => { // code here });</pre>
+            </p>
+            <h3>HTMLElement</h3>
+            <p>
+                Using "element" as example (usually something retrieved from an above "get" function)
+                <pre>element.appendChild(`&lt;div&gt; Child Content &lt;/div&gt;`)</pre>
+                <pre>element.appendSibling(`&lt;div&gt; Sibling Content &lt;/div&gt;`)</pre>
+                <pre>element.removeClass("classToRemove")</pre>
+                <pre>element.setClassList("this will be the class list")</pre>
+                <pre>element.toggleClass("nightMode")</pre>
+                <pre>element.hasClass("nightMode") // true or false</pre>
+                <pre>element.getStyles()</pre>
+                <pre>element.setStyles({"background-color" : "red"})</pre>
+                <pre>element.removeStyles(["background-color", "color"])</pre>
+                <pre>element.removeStyle("background-color")</pre>
+                <pre>element.getParent() // same as parentNode</pre>
+                <pre>element.getSiblings() // retrieve array of sibling nodes</pre>
+                <pre>element.getChildren() // same as childNodes</pre>
+                <pre>element.getSelectedValue() // retrieves first selected checkbox / selected option</pre>
+                <pre>element.getSelectedValues() // retrieves all selected checkbox / selected options</pre>
+                <pre>element.getData("id") // gives value of data-id attribute</pre>
+                <pre>element.removeData("id") // removes data-id attribute</pre>
+                <pre>element.setData("id", 5) // sets data-id=5</pre>
+                <pre>element.hide() // hide element</pre>
+                <pre>element.show() // show element</pre>
+                <pre>element.HTML // same as innerHTML</pre>
+            </p>
+            <h3>NodeList</h3>
+            <p>
+                All above methods should work automatically with a NodeList returned from document.getElements()
+            </p>
+            <h3>AJAX</h3>
+            <p>
+                <pre>POST(url, data, callback)</pre>
+                <pre>GET(url, callback)</pre>
+            </p>
+        </div>
+    </div>
+    <script>
+        document.whenReady(() => {
+            document.getElements("h1, h2, h3").setClass("heading");
+            document.getElements("p").setStyles({"font-size": "1em", "font-family" : "sans-serif"});
+            var divElement = document.getElement("#examples");
+            var styles = {
+                "background-color": "#242424",
+                "color": "white",
+                "padding": 10,
+                "border-radius": "10px"
+            };
+            divElement.setStyles(styles);
+
+            divElement.appendSibling(`
+            <div id="divTwo">
+                <hr/>
+            </div>
+            `);
+            var divTwo = document.getElement("#divTwo");
+            divTwo.appendChild(`
+                <button onClick="toggleNightMode();">Toggle Night Mode</button>
+            `);
+        });
+
+        function toggleNightMode(element) {
+            document.getElement("body").toggleClass("nightMode");
+        }
+    </script>
+</body>
+
+</html>
