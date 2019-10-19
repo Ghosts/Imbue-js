@@ -6,6 +6,8 @@ To accomplish this, Imbue provides prototype extensions for the document and HTM
 
 Imbue should be nearly as fast as vanilla JS, but hopefully easier to work with.
 
+_NOTE: this is a work in progress at the moment._
+
 ## Examples:
 
 ### HTMLDocument
