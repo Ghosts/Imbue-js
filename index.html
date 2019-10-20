@@ -3,6 +3,118 @@
 <title>Imbue.js</title>
 </head>
 <body>
-<h1>Coming soon...</h1>
+  <h1 id="imbue">Imbue</h1>
+
+<p><img src="https://github.com/ghosts/imbue/blob/master/logo.png" alt="Imbue logo" /></p>
+
+<p>Imbue was designed to replace some of the core features of jQuery, and provide a limited set of useful shortcuts and extensions on top of the standard NodeList, HTMLElement, and HTMLDocument prototypes.</p>
+
+<p>Some useful notes about Imbue:</p>
+
+<ul>
+<li>In most cases if a call fails or nothing is found, <code>undefined</code> is returned (similar to standard JS for selection)</li>
+
+<li>Imbue extends standard elements and is therefore interoperable with many other frameworks</li>
+
+<li>Methods and properties of Imbue often rename or call very simple native JS functions, nothing too fancy here</li>
+
+<li>Speed should be essentially on par with vanilla JS</li>
+
+<li>Imbue is <strong>not</strong> a framework, it will not completely replace something like jQuery, but it most likely can replace a majority of use-cases</li>
+</ul>
+
+<p>The main focus of Imbue is to augment standard JavaScript to make it easier to use in regards to DOM manipulation, and provide added functions as shorthands for standard calls. One easy example that illustrates this is the call for <code>document.whenReady()</code>, similar to <code>$( document ).ready()</code>. If you mainly use jQuery for selectors, setting styles, and some helper functions, Imbue can replace it with a much smaller footprint and faster runtimes. An added benefit is that Imbue is closer to native JavaScript than jQuery, meaning less to learn. For instance, <code>document.getElement()</code> in Imbue is very similar to <code>document.getElementById()</code> in native JavaScript. All Imbue functions are added to element objects, original JavaScript methods are preserved for the DOM and can be used interchangeably and alongside the added Imbue methods. The</p>
+
+<p><em>NOTE: this is a work in progress at the moment, contibutions appreciated!</em></p>
+
+<h2 id="examples">Examples:</h2>
+
+<h3 id="htmldocument">HTMLDocument</h3>
+
+<p><code>document.getElement("p") // returns first p elements</code></p>
+
+<p><code>document.getElements("p") // returns all p elements</code></p>
+
+<p><code>document.getElement("p", context) // optionally provide context (default is document)</code></p>
+
+<hr />
+
+<p><code>document.whenReady(function() { // code here }); // ran when document is ready</code></p>
+
+<p><code>document.whenReady(() =&gt; { // code here });</code></p>
+
+<h3 id="htmlelement">HTMLElement</h3>
+
+<p>Using "element" as example (usually something retrieved from an above "get" function)</p>
+
+<p><code>element.appendChild(`&lt;div&gt; Child Content &lt;/div&gt;`)</code></p>
+
+<p><code>element.appendSibling(`&lt;div&gt; Sibling Content &lt;/div&gt;`)</code></p>
+
+<hr />
+
+<p><code>element.removeClass("classToRemove")</code></p>
+
+<p><code>element.setClassList("this will be the class list")</code></p>
+
+<p><code>element.toggleClass("nightMode")</code></p>
+
+<p><code>element.hasClass("nightMode") // true or false</code></p>
+
+<hr />
+
+<p><code>element.getStyles()</code></p>
+
+<p><code>element.setStyles({"background-color" : "red"})</code></p>
+
+<p><code>element.removeStyles(["background-color", "color"])</code></p>
+
+<p><code>element.removeStyle("background-color")</code></p>
+
+<hr />
+
+<p><code>element.getParent() // same as parentNode</code></p>
+
+<p><code>element.getSiblings() // retrieve array of sibling nodes</code></p>
+
+<p><code>element.getChildren() // same as childNodes</code></p>
+
+<hr />
+
+<p><code>element.getSelectedValue() // retrieves first selected checkbox / selected option</code></p>
+
+<p><code>element.getSelectedValues() // retrieves all selected checkbox / selected options</code></p>
+
+<hr />
+
+<p><code>element.getData("id") // gives value of data-id attribute</code></p>
+
+<p><code>element.removeData("id") // removes data-id attribute</code></p>
+
+<p><code>element.setData("id", 5) // sets data-id=5</code></p>
+
+<hr />
+
+<p><code>element.hide() // hide element</code></p>
+
+<p><code>element.show() // show element</code></p>
+
+<hr />
+
+<p><code>element.HTML // same as innerHTML</code></p>
+
+<h3 id="nodelist">NodeList</h3>
+
+<p>All above methods should work automatically with a NodeList returned from document.getElements()</p>
+
+<h3 id="ajax">AJAX</h3>
+
+<p><code>POST(url, data, callback)</code></p>
+
+<p><code>GET(url, callback)</code></p>
+
+<p></div></p>
+
+<p></div></p>
 </body>
 </html>
