@@ -1,0 +1,25 @@
+{
+  "name": "@ghosts/imbue",
+  "version": "1.0.0",
+  "description": "Imbue native JavaScript with useful shortcuts and features.",
+  "main": "imbue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghosts/Imbue.git"
+  },
+  "keywords": [
+    "jQuery",
+    "JavaScript",
+    "Vanilla",
+    "PlainJS"
+  ],
+  "author": "Ghosts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghosts/Imbue/issues"
+  },
+  "homepage": "https://github.com/Ghosts/Imbue#readme"
+}
