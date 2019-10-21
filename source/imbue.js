@@ -191,6 +191,13 @@ NodeList.prototype.removeStyles = function() {
 
 // End NodeList Functions
 
+//Begin Array Functions
+
+Array.prototype.distinct = function() {
+  return Array.from(new Set(this));
+};
+//End Array Functions
+
 // Begin AJAX Functions
 function POST(url, data, success) {
   var params =
