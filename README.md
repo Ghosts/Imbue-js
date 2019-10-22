@@ -1,6 +1,6 @@
 ![Imbue logo](https://github.com/ghosts/imbue/blob/master/logo.png)
 
-Imbue was designed to replace some of the core features of jQuery, and provide a limited set of useful shortcuts and extensions on top of the standard NodeList, HTMLElement, and HTMLDocument prototypes.
+Imbue was designed to replace some of the core features of jQuery, and provide a limited set of useful shortcuts and extensions on top of the standard NodeList, HTMLElement, HTMLDocument, and Array prototypes.
 
 Some useful notes about Imbue:
 
