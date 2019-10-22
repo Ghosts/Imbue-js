@@ -6,6 +6,7 @@ HTMLDocument.prototype.getElements = function(selector, context) {
 HTMLDocument.prototype.getElement = function(selector, context) {
   return (context || document).querySelector(selector);
 };
+
 HTMLDocument.prototype.whenReady = function(callback) {
   // in case the document is already rendered
   if (document.readyState != "loading") callback();
@@ -21,14 +22,6 @@ HTMLDocument.prototype.whenReady = function(callback) {
 // End HTMLDocument Functions
 
 // End HTMLElement Functions
-HTMLElement.prototype.appendChild = function(template) {
-  this.innerHTML += template;
-};
-
-HTMLElement.prototype.appendSibling = function(template) {
-  this.parentNode.innerHTML += template;
-};
-
 HTMLElement.prototype.removeClass = function(className) {
   this.classList.remove(className);
 };
@@ -92,22 +85,8 @@ HTMLElement.prototype.getChildren = function() {
 
 HTMLElement.prototype.HTML = this.innerHTML;
 
-HTMLElement.prototype.getSelectedValue = function() {
-  var checked = _GetElement("input :checked", this);
-  return !checked
-    ? checked.options[checked.selectedIndex]
-      ? checked.options[checked.selectedIndex]
-      : undefined
-    : undefined;
-};
-
-HTMLElement.prototype.getSelectedValues = function() {
-  var checked = _GetElements("input :checked", this);
-  return !checked
-    ? checked.options[checked.selectedIndex]
-      ? checked.options[checked.selectedIndex]
-      : undefined
-    : undefined;
+HTMLSelectElement.prototype.getSelectedNode = function() {
+  return this.options[this.selectedIndex];
 };
 
 HTMLElement.prototype.getData = function(key) {
