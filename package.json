@@ -1,9 +1,6 @@
 {
   "name": "@ghosts/imbue",
-  "version": "1.0.1",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "version": "1.0.2",
   "description": "Imbue native JavaScript with useful shortcuts and features.",
   "main": "dist/imbue.js",
   "scripts": {

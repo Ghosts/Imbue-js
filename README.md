@@ -15,7 +15,13 @@ The main focus of Imbue is to augment standard JavaScript to make it easier to u
 _NOTE: this is a work in progress at the moment, contibutions appreciated!_
 
 ## CDN
-` https://cdn.jsdelivr.net/gh/ghosts/imbue@1.0.1/dist/imbue.js `
+
+`http://unpkg.com/@ghosts/imbue`
+
+## NPM
+
+`npm i @ghosts/imbue`
 
 ## Docs / Examples
+
 [https://imbue.js.org](https://imbue.js.org "Imbue Website")
