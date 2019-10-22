@@ -1,4 +1,4 @@
-![Imbue logo](https://github.com/ghosts/imbue/blob/master/logo.png)
+![Imbue logo](https://github.com/ghosts/imbue/blob/master/logo.png?raw=true)
 
 Imbue was designed to replace some of the core features of jQuery, and provide a limited set of useful shortcuts and extensions on top of the standard NodeList, HTMLElement, HTMLDocument, and Array prototypes.
 
@@ -16,11 +16,11 @@ _NOTE: this is a work in progress at the moment, contibutions appreciated!_
 
 ## CDN
 
-`http://unpkg.com/@ghosts/imbue`
+`http://unpkg.com/imbue-js`
 
 ## NPM
 
-`npm i @ghosts/imbue`
+`npm i imbue-js`
 
 ## Docs / Examples
 

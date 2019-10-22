@@ -1,7 +1,7 @@
 {
-  "name": "@ghosts/imbue",
+  "name": "imbue-js",
   "version": "1.0.2",
-  "description": "Imbue native JavaScript with useful shortcuts and features.",
+  "description": "Improve JavaScript with useful prototype extensions & helper methods.",
   "main": "dist/imbue.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
