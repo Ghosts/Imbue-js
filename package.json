@@ -1,6 +1,6 @@
 {
   "name": "imbue-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Improve JavaScript with useful prototype extensions & helper methods.",
   "main": "dist/imbue.js",
   "scripts": {

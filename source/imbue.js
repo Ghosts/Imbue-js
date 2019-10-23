@@ -83,7 +83,9 @@ HTMLElement.prototype.getChildren = function() {
   return this.childNodes;
 };
 
-HTMLElement.prototype.HTML = this.innerHTML;
+HTMLElement.prototype.HTML = function() {
+  return this.innerHTML;
+};
 
 HTMLSelectElement.prototype.getSelectedNode = function() {
   return this.options[this.selectedIndex];
@@ -91,7 +93,7 @@ HTMLSelectElement.prototype.getSelectedNode = function() {
 
 HTMLElement.prototype.getData = function(key) {
   if (!key) return undefined;
-  return this.getAttribute(`data-${dataId}`);
+  return this.getAttribute(`data-${key}`);
 };
 
 HTMLElement.prototype.removeData = function(key) {
