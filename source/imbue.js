@@ -177,6 +177,10 @@ NodeList.prototype.removeStyles = function() {
 Array.prototype.distinct = function() {
   return Array.from(new Set(this));
 };
+
+Array.prototype.distinctBy = function(prop) {
+  return [...new Map(this.map(item => [item[prop], item])).values()];
+};
 //End Array Functions
 
 // Begin AJAX Functions
