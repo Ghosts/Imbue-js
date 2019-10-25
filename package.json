@@ -1,6 +1,6 @@
 {
   "name": "imbue-js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Improve JavaScript with useful prototype extensions & helper methods.",
   "main": "dist/imbue.js",
   "scripts": {
@@ -21,6 +21,5 @@
   "bugs": {
     "url": "https://github.com/Ghosts/Imbue/issues"
   },
-  "homepage": "https://imbue.js.org",
-  "dependencies": {}
+  "homepage": "https://imbue.js.org"
 }
