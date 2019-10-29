@@ -7,6 +7,7 @@ Some useful notes about Imbue:
 - In most cases if a call fails or nothing is found, `undefined` is returned (similar to standard JS for selection)
 - Imbue extends standard elements and is therefore interoperable with many other frameworks
 - Methods and properties of Imbue often rename or call very simple native JS functions, nothing too fancy here
+-  Due to use of the IntersectionObserver API Imbue is <b>not</b> compatible with IE. But it's also 2019, so why would it be? Imbue will work flawlessly on all modern browsers (and slightly not-so modern)
 - Speed should be essentially on par with vanilla JS
 - Imbue is **not** a framework, it will not completely replace something like jQuery, but it most likely can replace a majority of use-cases
 
