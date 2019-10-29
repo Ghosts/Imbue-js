@@ -2,7 +2,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ghosts/imbue/dist/imbue.js"></script>
+  <script type="text/javascript" src="http://unpkg.com/imbue-js"></script>
   <title>Imbue.js</title>
   <style>
     * {
@@ -67,7 +67,8 @@
       padding: 10px;
     }
 
-    p code, li code {
+    p code,
+    li code {
       padding: 3px;
       border-radius: 8px;
       font-size: .9em;
@@ -141,7 +142,7 @@
         </svg>
         <b>Version 1.0.6</b>
         ➡
-      </small>
+    </small>
     </a>
   </p>
   <br />
@@ -157,8 +158,8 @@
       NPM:
       <pre><code>npm i imbue-js</code></pre>
     </p>
-   <small>Imbue is loaded on this page, feel free to explore the methods in the developer console.</small>
-   <br/> <br/>
+    <small>Imbue is loaded on this page, feel free to explore the methods in the developer console.</small>
+    <br /> <br />
   </div>
   <br />
   <div class="box">
@@ -188,6 +189,11 @@
       <li>
         Methods and properties of Imbue often rename or call very simple
         native JS functions, nothing too fancy here
+      </li>
+
+      <li>
+        Due to use of the IntersectionObserver API Imbue is <b>not</b> compatible with IE. But it's also 2019, so why
+        would it be? Imbue will work flawlessly on all modern browsers (and slightly not-so modern)
       </li>
 
       <li>Speed should be essentially on par with vanilla JS</li>
@@ -256,21 +262,22 @@
       Using "element" as example (usually something retrieved from an above
       "get" function)
     </p>
-
     <hr />
-
+    <p>
+      <pre><code>element.whenVisible(() => alert("Now Visible!")) <span class="comment">// Provided callback runs once each time the element is visible.</span></code></pre>
+    </p>
+    <p>
+      <pre><code>element.whenHidden(() => alert("Now Hidden!"))<span class="comment">// Provided callback runs once each time the element is hidden.</span></code></pre>
+    </p>
     <p>
       <pre><code>element.removeClass("classToRemove")</code></pre>
     </p>
-
     <p>
       <pre><code>element.setClassList("this will be the class list")</code></pre>
     </p>
-
     <p>
       <pre><code>element.toggleClass("nightMode")</code></pre>
     </p>
-
     <p>
       <pre><code>element.hasClass("nightMode") <span class="comment">// returns true or false</span></code></pre>
     </p>
@@ -354,7 +361,7 @@
     <p>
       <pre><code>myArray = myArray.distinct() <span class="comment">// remove duplicate elements</span></code></pre>
     </p>
-   <p>
+    <p>
       <pre><code>myArray = myArray.distinctBy(prop) <span class="comment">// removes duplicate objects by property in array, preserves last instance</span></code></pre>
     </p>
 

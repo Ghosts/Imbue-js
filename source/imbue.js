@@ -22,6 +22,35 @@ HTMLDocument.prototype.whenReady = function (callback) {
 // End HTMLDocument Functions
 
 // End HTMLElement Functions
+
+HTMLElement.prototype.whenVisible = function (callback) {
+  var element = this;
+  if (window.IntersectionObserver) {
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].intersectionRatio) {
+        callback();
+      }
+    }, {
+      root: document.body
+    });
+    observer.observe(element);
+  }
+}
+
+HTMLElement.prototype.whenHidden = function (callback) {
+  var element = this;
+  if (window.IntersectionObserver) {
+    var observer = new IntersectionObserver(function (entries) {
+      if (!entries[0].intersectionRatio) {
+        callback();
+      }
+    }, {
+      root: document.body
+    });
+    observer.observe(element);
+  }
+}
+
 HTMLElement.prototype.removeClass = function (className) {
   this.classList.remove(className);
 };
@@ -174,7 +203,7 @@ Array.prototype.distinct = function () {
   return Array.from(new Set(this));
 };
 
-Array.prototype.distinctBy = function(prop) {
+Array.prototype.distinctBy = function (prop) {
   return [...new Map(this.map(item => [item[prop], item])).values()];
 };
 //End Array Functions
