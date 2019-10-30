@@ -161,7 +161,7 @@ NodeList.prototype.addClass = function (className) {
   }
 };
 
-NodeList.prototype.toggleClass = function (className) {
+NodeList.prototype.toggleClasses = function (className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.toggle(className);
   }
