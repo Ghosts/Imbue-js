@@ -4,6 +4,10 @@ Imbue is designed to replace some of the core features of jQuery, and provide a 
 
 _NOTE: this is a work in progress at the moment, contibutions appreciated!_
 
+## Docs / Examples / More Info
+
+[https://imbue.js.org](https://imbue.js.org "Imbue Website")
+
 ## CDN
 
 `http://unpkg.com/imbue-js`
@@ -11,7 +15,3 @@ _NOTE: this is a work in progress at the moment, contibutions appreciated!_
 ## NPM
 
 `npm i imbue-js`
-
-## Docs / Examples
-
-[https://imbue.js.org](https://imbue.js.org "Imbue Website")
