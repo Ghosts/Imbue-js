@@ -143,25 +143,25 @@ HTMLElement.prototype.showElement = function () {
 
 // Begin NodeList Functions
 
-NodeList.prototype.setClass = function (classList) {
+NodeList.prototype.setClasses = function (classList) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList = classList;
   }
 };
 
-NodeList.prototype.removeClass = function (className) {
+NodeList.prototype.removeClasses = function (className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.remove(className);
   }
 };
 
-NodeList.prototype.addClass = function (className) {
+NodeList.prototype.addClasses = function (className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.add(className);
   }
 };
 
-NodeList.prototype.toggleClass = function (className) {
+NodeList.prototype.toggleClasses = function (className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.toggle(className);
   }
@@ -170,7 +170,7 @@ NodeList.prototype.toggleClass = function (className) {
 NodeList.prototype.getStyles = function () {
   var styles = [];
   for (var i = 0; i < this.length; i++) {
-    styles.push(this[i].classList.getAttribute("style"));
+    styles.push(this[i].getAttribute("style"));
   }
   return styles;
 };
@@ -185,13 +185,19 @@ NodeList.prototype.setStyles = function (styles) {
 
 NodeList.prototype.removeAllStyles = function () {
   for (var i = 0; i < this.length; i++) {
-    this[i].classList.setAttribute("style", null);
+    this[i].setAttribute("style", null);
   }
 };
 
-NodeList.prototype.removeStyles = function () {
+NodeList.prototype.removeAllClasses = function () {
   for (var i = 0; i < this.length; i++) {
-    this[i].style[prop] = null;
+    this[i].classList = null;
+  }
+};
+
+NodeList.prototype.removeStyles = function (style) {
+  for (var i = 0; i < this.length; i++) {
+    this[i].style[style] = null;
   }
 };
 
