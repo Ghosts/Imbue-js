@@ -24,15 +24,24 @@ HTMLDocument.prototype.whenReady = function(callback) {
 // End HTMLElement Functions
 
 HTMLElement.prototype.onClick = function(callback) {
-  if(this._onClickFunction) this.removeEventListener("click", this._onClickFunction);
+  if (this._onClickFunction)
+    this.removeEventListener("click", this._onClickFunction);
   this.prototype._onClickFunction = callback;
   this.addEventListener("click", callback);
 };
 
 HTMLElement.prototype.onHover = function(callback) {
-  if(this._onHoverFunction) this.removeEventListener("mouseover", this._onClickFunction);
+  if (this._onHoverFunction)
+    this.removeEventListener("mouseover", this._onClickFunction);
   this.prototype._onHoverFunction = callback;
   this.addEventListener("mouseover", callback);
+};
+
+HTMLElement.prototype.onEvent = function(event, callback) {
+  if (this[`_${event}`])
+    this.removeEventListener(event, this[`_${event}`]);
+  this.prototype[`_${event}`] = callback;
+  this.addEventListener(event, callback);
 };
 
 HTMLElement.prototype.whenVisible = function(callback) {
@@ -157,29 +166,33 @@ HTMLElement.prototype.showElement = function() {
   this.style.display = "";
 };
 
+HTMLElement.prototype.getWidth = function() {
+  return parseFloat(getComputedStyle(this, null).width.replace("px", ""));
+};
+
 // End HTMLElement Functions
 
 // Begin NodeList Functions
 
-NodeList.prototype.setClasses = function (classList) {
+NodeList.prototype.setClasses = function(classList) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList = classList;
   }
 };
 
-NodeList.prototype.removeClasses = function (className) {
+NodeList.prototype.removeClasses = function(className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.remove(className);
   }
 };
 
-NodeList.prototype.addClasses = function (className) {
+NodeList.prototype.addClasses = function(className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.add(className);
   }
 };
 
-NodeList.prototype.toggleClasses = function (className) {
+NodeList.prototype.toggleClasses = function(className) {
   for (var i = 0; i < this.length; i++) {
     this[i].classList.toggle(className);
   }
@@ -207,13 +220,13 @@ NodeList.prototype.removeAllStyles = function() {
   }
 };
 
-NodeList.prototype.removeAllClasses = function () {
+NodeList.prototype.removeAllClasses = function() {
   for (var i = 0; i < this.length; i++) {
     this[i].classList = null;
   }
 };
 
-NodeList.prototype.removeStyles = function (style) {
+NodeList.prototype.removeStyles = function(style) {
   for (var i = 0; i < this.length; i++) {
     this[i].style[style] = null;
   }
@@ -233,42 +246,60 @@ Array.prototype.distinctBy = function(prop) {
 //End Array Functions
 
 // Begin AJAX Functions
-function POST(url, data, success) {
-  var params =
-    typeof data == "string"
-      ? data
-      : Object.keys(data)
-          .map(function(k) {
-            return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-          })
-          .join("&");
-
-  var xhr = window.XMLHttpRequest
-    ? new XMLHttpRequest()
-    : new ActiveXObject("Microsoft.XMLHTTP");
-  xhr.open("POST", url);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState > 3 && xhr.status == 200) {
-      success(xhr.responseText);
+function JSON_GET(url, success, error) {
+  var request = new XMLHttpRequest();
+  request.open("GET", url, true);
+  request.onload = function() {
+    if (this.status >= 200 && this.status < 400) {
+      // Success!
+      var data = JSON.parse(this.response);
+      success(data);
+    } else {
+      error(thiis.response);
     }
   };
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send(params);
-  return xhr;
+  request.onerror = error;
+  request.send();
 }
 
-function GET(url, success) {
-  var xhr = window.XMLHttpRequest
-    ? new XMLHttpRequest()
-    : new ActiveXObject("Microsoft.XMLHTTP");
-  xhr.open("GET", url);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState > 3 && xhr.status == 200) success(xhr.responseText);
+/* 
+options: 
+{
+  type,
+  url, 
+  success,
+  error,
+  contentType,
+  dataType,
+  data
+}
+ */
+function AJAX(options) {
+  var _defaultOptions = {
+    type: "GET",
+    url: null,
+    success: null,
+    error: null,
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    data: null
   };
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.send();
-  return xhr;
+  // Set default values if left unset (JSON mostly)
+  for (var key in Object.keys(options)) {
+    if (options[key]) continue;
+    options[key] = _defaultOptions[key];
+  }
+  var request = new XMLHttpRequest();
+  request.open(options.type, options.url, true);
+  request.setRequestHeader("Content-Type", options.contentType);
+  request.onload = function() {
+    if (this.status >= 200 && this.status < 400) {
+      success(this.response);
+    } else {
+      error(this.response);
+    }
+  };
+  request.onerror = error();
+  request.send(options.data);
 }
-
 // End AJAX Functions
