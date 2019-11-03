@@ -24,23 +24,17 @@ HTMLDocument.prototype.whenReady = function(callback) {
 // End HTMLElement Functions
 
 HTMLElement.prototype.onClick = function(callback) {
-  if (this._onClickFunction)
-    this.removeEventListener("click", this._onClickFunction);
-  this.prototype._onClickFunction = callback;
-  this.addEventListener("click", callback);
+  this.onEvent("click", callback);
 };
 
 HTMLElement.prototype.onHover = function(callback) {
-  if (this._onHoverFunction)
-    this.removeEventListener("mouseover", this._onClickFunction);
-  this.prototype._onHoverFunction = callback;
-  this.addEventListener("mouseover", callback);
+  this.onEvent("mouseenter", callback);
 };
 
 HTMLElement.prototype.onEvent = function(event, callback) {
   if (this[`_${event}`])
     this.removeEventListener(event, this[`_${event}`]);
-  this.prototype[`_${event}`] = callback;
+  this[`_${event}`] = callback;
   this.addEventListener(event, callback);
 };
 
