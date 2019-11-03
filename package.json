@@ -1,5 +1,5 @@
 {
-  "name": "imbue-js",
+  "name": "@ghosts/imbue-js",
   "version": "1.0.10",
   "description": "Improve JavaScript with useful prototype extensions & helper methods.",
   "main": "dist/imbue.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git+https://github.com/Ghosts/Imbue.git",
+  "repository": "git+https://github.com/Ghosts/Imbue-js.git",
   "keywords": [
     "jQuery",
     "JavaScript",
@@ -18,7 +18,7 @@
   "private": false,
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ghosts/Imbue/issues"
+    "url": "https://github.com/Ghosts/Imbue-js/issues"
   },
   "dependencies": {},
   "homepage": "https://imbue.js.org"
