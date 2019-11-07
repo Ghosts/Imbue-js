@@ -1,6 +1,6 @@
 {
   "name": "@ghosts/imbue-js",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Improve JavaScript with useful prototype extensions & helper methods.",
   "main": "dist/imbue.js",
   "unpkg": "dist/imbue.js",
