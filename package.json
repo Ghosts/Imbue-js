@@ -5,7 +5,7 @@
   "main": "dist/imbue.js",
   "unpkg": "dist/imbue.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\" && exit 0"
   },
   "repository": "git+https://github.com/Ghosts/Imbue-js.git",
   "keywords": [
