@@ -17,6 +17,7 @@ HTMLDocument.prototype.whenReady = function (callback) {
       if (document.readyState == "complete") callback();
     });
 };
+
 // End HTMLDocument Functions
 
 // End HTMLElement Functions
